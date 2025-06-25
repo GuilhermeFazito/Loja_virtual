@@ -23,6 +23,8 @@ def menu_principal():
             escolha_menu = int(escolha_menu)
 
             if escolha_menu in [1, 2, 3, 4, 5]:
+                if escolha_menu == 5:
+                    exit()
                 return escolha_menu
             else: 
                 print(f"\nEssa opção nao existe, ({escolha_menu}) é um numero invalido")
