@@ -23,8 +23,9 @@ def menu_principal():
             escolha_menu = int(escolha_menu)
 
             if escolha_menu in [1, 2, 3, 4, 5]:
-                if escolha_menu == 5:
-                    exit()
+                if escolha_menu == 5:  
+                    pergunta_de_seguranca() 
+                    continue           
                 return escolha_menu
             else: 
                 print(f"\nEssa opção nao existe, ({escolha_menu}) é um numero invalido")
@@ -34,4 +35,24 @@ def menu_principal():
             print(f"\nError, tente apenas numero validos de 1 a 5")
             sleep(1)
 
+# Função para perguntar se a pessoa realmente deseja sair!
+def pergunta_de_seguranca():
+    while True:
+        print(f"\nVoce tem certeza fazer isso?")
+        escolha_pergunta_de_seguranca = input(f"Digite aqui sua resposta (S/N): ").upper().replace("Ã", "A")
 
+        # Tratamento de Erro, a prova de idiotas!
+        try:
+            if escolha_pergunta_de_seguranca == 'S' or escolha_pergunta_de_seguranca == 'SIM':
+                exit()
+            elif escolha_pergunta_de_seguranca == 'N' or escolha_pergunta_de_seguranca == 'NAO':
+                print(f"\nOk Voltando ao menu principal")
+                sleep(1)
+                break
+            else:
+                print(f"\nDigite apenas S ou N!")
+                sleep(0.5)
+        except ValueError:
+            print(f"\nError, tente apenas -> (S) ou (N)!")
+
+menu_principal()
