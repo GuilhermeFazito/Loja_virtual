@@ -5,11 +5,12 @@ from time import sleep
 def menu_principal():
     while True:
         print(f"""
-=====================================          
+=======================================          
     BEM VINDO A NOSSA LOJA VIRTUAL
-=====================================
+De Gift Card e Jogos em Midia Digital
+=======================================
  O que vc deseja?
- 1 -> ...
+ 1 -> Acessar Estoque
  2 -> ...
  3 -> ...
  4 -> Saber mais sobre a loja         
@@ -55,4 +56,11 @@ def pergunta_de_seguranca():
         except ValueError:
             print(f"\nError, tente apenas -> (S) ou (N)!")
 
-menu_principal()
+
+
+
+        
+
+
+
+
