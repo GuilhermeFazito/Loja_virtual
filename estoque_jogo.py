@@ -1,11 +1,11 @@
 from time import sleep
 
-def menu_estoque():
+def menu_estoque_jogo():
     while True:
         print("""
 =========================================
     Bem vindo ao nosso estoque
-        Escolha os itens
+       Escolha a Plataforma
 ========================================
               
 1) STEAM
@@ -48,4 +48,4 @@ def estoque_steam():
     
 
 
-menu_estoque()
+menu_estoque_jogo()
