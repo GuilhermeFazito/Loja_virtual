@@ -11,7 +11,7 @@ De Gift Card e Jogos em Midia Digital
 =======================================
  O que vc deseja?
  1 -> Acessar Estoque
- 2 -> ...
+ 2 -> Loja de Gift Card
  3 -> ...
  4 -> Saber mais sobre a loja         
  5 -> Sair       
