@@ -44,6 +44,9 @@ def menu_loja_jogo():
             menu_steam()
         elif escolha_plataforma == 2:
             menu_ps4()
+        elif escolha_plataforma == 3:
+            menu_xbox()
+
         
 
 
@@ -171,7 +174,7 @@ def menu_ps4():
                         
                         break
                     else:
-                         print("Valor invalido, Retornando ao menu Steam, caso queira adicionar mais jogos.")
+                         print("Valor invalido, Retornando ao menu do PS4/PS5, caso queira adicionar mais jogos.")
                          sleep(3)
                 except ValueError:
                     print("Valor invalido, Retornando ao menu do ps4/ps5")
@@ -202,7 +205,83 @@ def menu_ps4():
             
     except ValueError:
         print("Voltando para a aba de estoque, Caso queira escolher mais jogos de outras plataformas.")
+def menu_xbox():
+       
+        #Dicionario do carrinho que vai retornar o valor pra função
+    carrinho_xbox = {}
 
+    # FELIPE -> Criei um arquivo de database para os jogos da steam (200 jogos), ps4/ps5 (100 jogos), xbox (100 jogos) 
+    
+        #Esse while exibe a parte que mostra os jogos disponiveis, e adiciona no carrinho 
+    while True:
+        print("""
+    ========================================
+            Estoque do XBOX
+            O que você deseja?
+    ========================================
+    """)
+        
+        # Exibe os jogos disponiveis
+        print("📦 Estoque de Jogos:")
+        print ("=" * 30)
+        for id_jogo, info in xbox_games.items():
+            print(f"{id_jogo:02d}. 🎮 {info['nome']:<30} | R$ {info['preco']:>7.2f}")
+        print("-" * 30)
+        print("Caso queira voltar, digite 'EXIT'")
+
+        # Escolha dos jogos que vai adicionar no carrinho
+        escolha_jogos = input("Digite o ID do jogo que deseja adicionar no carrinho: ")
+        try:
+            if escolha_jogos.upper() == "EXIT":
+               break
+            
+            id_jogo = int(escolha_jogos)
+            if id_jogo in xbox_games:                           # Verifica se o ID que a pessoa digitou esta no dicionarios dos jogos
+                carrinho_xbox[id_jogo] = xbox_games[id_jogo]         #Adicionando o a lista do jogo completa(ID_jogo, nome, preço) 
+                print(f"⏳ Adicionando jogo ao carrinho")
+                sleep(3)
+                print(f"✅ {xbox_games[id_jogo]["nome"]} adicionado ao carrinho")
+
+                    #Oferece a opção de escolher outro jogo, rodandno tudo novamento    
+                opcao_outro_jogo = input("Deseja escolher outro jogo? ").upper()
+                try:
+                    if opcao_outro_jogo == "SIM" or opcao_outro_jogo == "S":
+                        continue
+                    elif opcao_outro_jogo == "NÃO" or opcao_outro_jogo == "NAO" or opcao_outro_jogo == "N":
+                        
+                        break
+                    else:
+                         print("Valor invalido, Retornando ao menu da XBOX, caso queira adicionar mais jogos.")
+                         sleep(3)
+                except ValueError:
+                    print("Valor invalido, Retornando ao menu do XBOX")
+            else:
+                print("❌ Escolha invalida. Digite o numero correspondente ao ID do jogo.")
+        except ValueError:
+            print("❌ Escolha invalida. Digite o numero correspondente ao ID do jogo.")
+    
+   ## obs: tirar de dentro dessa função e criar outra pra ver o carrinho da steam
+    #ofere a escolha de ver oq ela selecionou no carrinho e volta pro menu de estoque 
+    
+    escolha_ver_carrinho_xbox = input("Deseja ver seu carrinho de jogos do XBOX antes de voltar ?").upper()
+    try:
+        if escolha_ver_carrinho_xbox == "SIM" or escolha_ver_carrinho_xbox == "S":
+                print("\n🛒 Seu Carrinho:")
+                print("=" * 40)
+                total = 0
+                for id_jogo, info in carrinho_xbox.items():
+                    print(f"{id_jogo:02d}. 🎮 {info['nome']:<30} | R$ {info['preco']:>7.2f}")
+                    total += info['preco']
+                print("=" * 40)
+                print(f"💰 Total: R$ {total:>7.2f}")
+                print("voltando para a escolha de plataforma")
+                sleep(2)
+            
+        elif escolha_ver_carrinho_xbox == "NAO" or escolha_ver_carrinho_xbox == "NÃO" or escolha_ver_carrinho_xbox == "N": 
+            print("Voltando para a aba de estoque, Caso queira escolher mais jogos de outras plataformas.")
+            
+    except ValueError:
+        print("Voltando para a aba de estoque, Caso queira escolher mais jogos de outras plataformas.")
 
 
 menu_loja_jogo()
