@@ -73,7 +73,7 @@ def menu_steam():
         print("📦 Estoque de Jogos:")
         print ("=" * 30)
         for id_jogo, info in st_games.items():
-            print(f"{id_jogo:02d}. 🎮 {info['nome']:<30} | R$ {info['preco']:>7.2f}")
+            print(f"{id_jogo:02d}. 🎮 {info['nome']:<40} | R$ {info['preco']:>7.2f}")
         print("-" * 30)
         print("Caso queira voltar, digite 'EXIT'")
 
@@ -118,7 +118,7 @@ def menu_steam():
                 print("=" * 40)
                 total = 0
                 for id_jogo, info in carrinho_steam.items():
-                    print(f"{id_jogo:02d}. 🎮 {info['nome']:<30} | R$ {info['preco']:>7.2f}")
+                    print(f"{id_jogo:02d}. 🎮 {info['nome']:<40} | R$ {info['preco']:>7.2f}")
                     total += info['preco']
                 print("=" * 40)
                 print(f"💰 Total: R$ {total:>7.2f}")
@@ -148,7 +148,7 @@ def menu_ps4():
         print("📦 Estoque de Jogos:")
         print ("=" * 30)
         for id_jogo, info in ps5_games.items():
-            print(f"{id_jogo:02d}. 🎮 {info['nome']:<30} | R$ {info['preco']:>7.2f}")
+            print(f"{id_jogo:02d}. 🎮 {info['nome']:<40} | R$ {info['preco']:>7.2f}")
         print("-" * 30)
         print("Caso queira voltar, digite 'EXIT'")
 
@@ -193,7 +193,7 @@ def menu_ps4():
                 print("=" * 40)
                 total = 0
                 for id_jogo, info in carrinho_ps4.items():
-                    print(f"{id_jogo:02d}. 🎮 {info['nome']:<30} | R$ {info['preco']:>7.2f}")
+                    print(f"{id_jogo:02d}. 🎮 {info['nome']:<40} | R$ {info['preco']:>7.2f}")
                     total += info['preco']
                 print("=" * 40)
                 print(f"💰 Total: R$ {total:>7.2f}")
@@ -225,7 +225,7 @@ def menu_xbox():
         print("📦 Estoque de Jogos:")
         print ("=" * 30)
         for id_jogo, info in xbox_games.items():
-            print(f"{id_jogo:02d}. 🎮 {info['nome']:<30} | R$ {info['preco']:>7.2f}")
+            print(f"{id_jogo:02d}. 🎮 {info['nome']:<40} | R$ {info['preco']:>7.2f}")
         print("-" * 30)
         print("Caso queira voltar, digite 'EXIT'")
 
@@ -270,7 +270,7 @@ def menu_xbox():
                 print("=" * 40)
                 total = 0
                 for id_jogo, info in carrinho_xbox.items():
-                    print(f"{id_jogo:02d}. 🎮 {info['nome']:<30} | R$ {info['preco']:>7.2f}")
+                    print(f"{id_jogo:02d}. 🎮 {info['nome']:<40} | R$ {info['preco']:>7.2f}")
                     total += info['preco']
                 print("=" * 40)
                 print(f"💰 Total: R$ {total:>7.2f}")
