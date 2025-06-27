@@ -25,8 +25,8 @@ De Gift Card e Jogos em Midia Digital
 
             if escolha_menu in [1, 2, 3, 4, 5]:
                 if escolha_menu == 5:  
-                    pergunta_de_seguranca() 
-                    continue           
+                    pergunta_de_seguranca()
+                    continue         
                 return escolha_menu
             else: 
                 print(f"\nEssa opção nao existe, ({escolha_menu}) é um numero invalido")
@@ -58,8 +58,8 @@ def pergunta_de_seguranca():
 
 
 
-
-        
+if __name__ == "__main__":
+    menu_principal()
 
 
 
