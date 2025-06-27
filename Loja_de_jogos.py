@@ -1,5 +1,28 @@
 from time import sleep
 
+# --- Importação dos Dicionários de Jogos ---
+
+# @st_games é o ALIAS para o dicionario_jogos_steam.
+from DB.DB_steam_games import dicionario_jogos_steam as st_games
+
+# @ps5_games é o ALIAS para o dicionario_jogos_ps5.
+from DB.DB_ps5_games import dicionario_jogos_ps5 as ps5_games
+
+# @xbox_games é o ALIAS para o dicionario_jogos_xbox.
+from DB.DB_xbox_games import dicionario_jogos_xbox as xbox_games
+
+# --- Estrutura de Exemplo de um Jogo ---
+# As estruturas continuamm a mesma junto com o metodo de implementação.
+# As unicas diferenças são os "apelidos" dados para diminuir a verbosidade
+# O codigo já foi editado para os apelidos para que não ajá nenhum tipo de erro 
+# referente a isso.
+
+# --- Observações ---
+# Os aliases (st_games, ps5_games, xbox_games) são usados para diminuir
+# a verbosidade e facilitar a referência aos dicionários de jogos
+# em outras partes do código.
+
+
 def menu_loja_jogo():
     while True:
         print("""
@@ -30,18 +53,8 @@ def menu_steam():
 
         #Dicionario do carrinho que vai retornar o valor pra função
     carrinho = {}
-    
-        # Dicionario que contem todos os jogos disponiveis                                
-    dicionario_jogos_steam = {
-        1: {"nome": "Black Myth: Wukong", "preco": 199.00},
-        2: {"nome": "Elden Ring", "preco": 249.90},
-        3: {"nome": "FIFA 25", "preco": 299.00},
-        4: {"nome": "The Last of Us Part II", "preco": 229.90},
-        5: {"nome": "Cuphead + DLC", "preco": 49.99}
-        }
-    
 
-
+    # FELIPE -> Criei um arquivo de database para os jogos da steam (200 jogos), ps4/ps5 (100 jogos), xbox (100 jogos) 
     
         #Esse while exibe a parte que mostra os jogos disponiveis, e adiciona no carrinho 
     while True:
@@ -55,7 +68,7 @@ def menu_steam():
         # Exibe os jogos disponiveis
         print("📦 Estoque de Jogos:")
         print ("=" * 30)
-        for id_jogo, info in dicionario_jogos_steam.items():
+        for id_jogo, info in st_games.items():
             print(f"{id_jogo:02d}. 🎮 {info['nome']:<30} | R$ {info['preco']:>7.2f}")
         print("-" * 30)
         print("Caso queira voltar, digite 'EXIT'")
@@ -67,11 +80,11 @@ def menu_steam():
                break
             
             id_jogo = int(escolha_jogos)
-            if id_jogo in dicionario_jogos_steam:                           # Verifica se o ID que a pessoa digitou esta no dicionarios dos jogos
-                carrinho[id_jogo] = dicionario_jogos_steam[id_jogo]         #Adicionando o a lista do jogo completa(ID_jogo, nome, preço) 
+            if id_jogo in st_games:                           # Verifica se o ID que a pessoa digitou esta no dicionarios dos jogos
+                carrinho[id_jogo] = st_games[id_jogo]         #Adicionando o a lista do jogo completa(ID_jogo, nome, preço) 
                 print(f"⏳ Adicionando jogo ao carrinho")
                 sleep(3)
-                print(f"✅ {dicionario_jogos_steam[id_jogo]["nome"]} adicionado ao carrinho")
+                print(f"✅ {st_games[id_jogo]["nome"]} adicionado ao carrinho")
 
                     #Oferece a opção de escolher outro jogo, rodandno tudo novamento    
                 opcao_outro_jogo = input("Deseja escolher outro jogo? ").upper()
