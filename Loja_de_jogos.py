@@ -34,8 +34,7 @@ def menu_loja_jogo():
 1) STEAM
 2) PS4/PS5
 3) XBOX
-4) Outros
-5) Carrinho
+4) Carrinho
 5) Voltar
  """)
         escolha_plataforma = int(input("Digite sua escolha de 1 a 5: "))
@@ -46,6 +45,12 @@ def menu_loja_jogo():
             menu_ps4()
         elif escolha_plataforma == 3:
             menu_xbox()
+        elif escolha_plataforma == 4:
+            print("chamando o carrinho")
+        elif escolha_plataforma == 4:
+            print("Voltando para o MENU PRINCIPAL")
+            break
+        
 
         
 
