@@ -289,4 +289,5 @@ def menu_xbox():
         print("Voltando para a aba de estoque, Caso queira escolher mais jogos de outras plataformas.")
 
 
-menu_loja_jogo()
+if __name__ == "__main__":
+    menu_loja_jogo()
