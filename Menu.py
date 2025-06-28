@@ -10,7 +10,7 @@ def menu_principal():
 De Gift Card e Jogos em Midia Digital
 =======================================
  O que vc deseja?
- 1 -> Acessar Estoque
+ 1 -> Loja de Jogos
  2 -> Loja de Gift Card
  3 -> ...
  4 -> Saber mais sobre a loja         
