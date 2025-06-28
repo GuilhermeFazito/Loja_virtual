@@ -1,10 +1,8 @@
-from time import sleep
+from time import sleep # Para deixar mais responsivo
 from random import randint # Será usado em breve tambem
 
-codigo_gift = [''] # Essa lista ainda vai ser mexida, ta ai como exemplo por enquanto
-carrinho_gift = {}
-# Função comprar_gift_card() falta terminar!
-
+codigo_gift = [] # Essa lista ainda vai ser mexida, ta ai como exemplo por enquanto
+carrinho_gift = {} # Carrinho dos gifts cards
 
 def menu_carrinho_gift(): # Função para mostrar o menu e fazer os encaminhamentos
     while True:
@@ -27,9 +25,6 @@ def menu_carrinho_gift(): # Função para mostrar o menu e fazer os encaminhamen
                 comprar_gift_card()
             elif int_opcoes == 2: # Feito em pedaço, ainda falta terminar
                 mostrar_carrinho()
-            elif int_opcoes == 3: 
-                sleep(1)
-                resgatar_codigo_gift_card()
             elif int_opcoes == 4:
                 print("\nSaindo do menu. Obrigado!")
                 sleep(1)
@@ -52,36 +47,9 @@ def retorno(): # Função de pergunta para a pessoa se ela quer refazer o que es
          sleep(0.5)
          return voltar
      elif voltar == 'NÃO' or 'N' or 'NAO':
-        break
-                 
-def resgatar_codigo_gift_card(): # Função para resgatar codigos dos gift cards na loja
-    while True:
-        print(f"""
-=========================================
-        RESGATE SEUS CODIGO AQUI!
-=========================================
-⇓ Exemplo de codigo ⇓
-""")
-        print("\033[33m (4E5EE-EE45E-E4E4E)\033[0m")
-        sleep(0.5)
-        codigo = input(f"\nDigite o código do gift card em (MAIUSCULO): ").upper()
+        break                 
 
-        if codigo in codigo_gift:
-            print(f"\nResgatado com Sucesso!")
-            resposta = retorno()
-
-            if resposta == '':
-                continue
-            else:
-                print('\nOk voltando ao menu principal')
-                sleep(0.5)
-                break
-        else:
-            print(f"\nTalvez o codigo {codigo} ja foi usado ou não existe!")
-            print(f"\nTente novamente")
-            sleep(0.5)
-
-def comprar_gift_card():
+def comprar_gift_card(): # Função do menu de compra dos gifts cards
     while True:
         print(f"""
 =========================================
@@ -95,32 +63,33 @@ def comprar_gift_card():
                         """)
         escolha = int(input(f"Digite uma opção: "))
 
-        if escolha == 1:
-            valor = 'R$ 50'
-        elif escolha == 2:
-            valor = 'R$ 100'
-        elif escolha == 3:
-            valor = 'R$ 150'
-        elif escolha == 4:
-            valor = 'R$ 200'
+        if escolha == 1:                # Escolhendo os gifts cards
+            valor = 'R$ 50'             # Valor do GIFT CARD
+        elif escolha == 2:              # Escolhendo os gifts cards
+            valor = 'R$ 100'            # Valor do GIFT CARD
+        elif escolha == 3:              # Escolhendo os gifts cards
+            valor = 'R$ 150'            # Valor do GIFT CARD
+        elif escolha == 4:              # Escolhendo os gifts cards
+            valor = 'R$ 200'            # Valor do GIFT CARD
         else:
             print(f"Opção invalida")
             continue
 
         # ADICIONAR AO CARRINHO
-        if valor in carrinho_gift:
+        if valor in carrinho_gift:         
             carrinho_gift[valor] += 1
         else:
             carrinho_gift[valor] = 1
         print(f"\n{valor} Adicionado ao carrinho!")
         sleep(0.5)
         
+        # TRATAMENTO DE ERRO PARA ESCOLHA DO USUARIO DE COMPRAR NOVAMENTE
         try:
             print(f"\nDeseja adicionar mais gifts cards ao carrinho?")
             
             adiconar_mais = input(f"\n[S]im ou [N]ao: ").upper()
 
-            lista_aprova_de_idiotas = ['NÃO', 'NAO', 'N']
+            lista_aprova_de_idiotas = ['NÃO', 'NAO', 'N']  # Lista para validação da escolha (Não)
 
             if adiconar_mais == 'SIM' or adiconar_mais == 'S':
                 print(f"\nVoltando")
@@ -133,17 +102,21 @@ def comprar_gift_card():
         except ValueError:
             print(f"Error")
 
-def mostrar_carrinho():
+def mostrar_carrinho(): # Função para mostrar o carrinho do cliente
     print(f"""
 =========================================
              SEU CARRINHO!
 =========================================
 """)
+    # Mostrar o carrinho vazio se nao houver nada
     if not carrinho_gift:
         print(f"Carrinho vazio!")
     else:
-        for valor, qtd in carrinho_gift.items():
+        # Mostrar o carrinho
+        for valor, qtd in carrinho_gift.items():                     
             print(qtd,"\033[31mx Gift Card de R$\033[0m", valor)
         sleep(1)
 
-menu_carrinho_gift()
+if __name__ == "__main__":
+    menu_carrinho_gift()
+    comprar_gift_card()
