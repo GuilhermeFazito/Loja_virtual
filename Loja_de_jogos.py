@@ -23,6 +23,11 @@ from DB.DB_xbox_games import dicionario_jogos_xbox as xbox_games
 # em outras partes do código.
 
 
+
+
+
+
+
 def menu_loja_jogo():
     while True:
         print("""
@@ -287,6 +292,11 @@ def menu_xbox():
             
     except ValueError:
         print("Voltando para a aba de estoque, Caso queira escolher mais jogos de outras plataformas.")
+
+
+
+
+
 
 
 if __name__ == "__main__":
